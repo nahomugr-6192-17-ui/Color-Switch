@@ -3,12 +3,20 @@ using UnityEngine.UI;
 
 public class scoreCounter : MonoBehaviour
 {
+    public static scoreCounter Instance;
+
     public Text scoreText;
+
     private int score;
 
-    public void addScore()
+    void Start()
+    {
+        Instance = this;
+    }
+
+    public void AddScore()
     {
         score++;
-        scoreText.text = score.ToString("0");
+        scoreText.text = score.ToString();
     }
 }

@@ -7,7 +7,6 @@ public class playerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public SpriteRenderer sr;
     public string colorNames;
-    public ColorSwitchManager color;
 
     // Update is called once per frame
     void Update()
@@ -20,11 +19,11 @@ public class playerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "ColorSwitcher")
+        if (collision.gameObject.name == colorNames || collision.CompareTag("Color Switcher") || collision.CompareTag("Star") && collision.gameObject.name != "Win")
         {
             return;
         }
-        else if (collision.gameObject.name != colorNames && collision.gameObject.name != "Star")
+        else
         {
             Debug.Log("Game Over");
         }
