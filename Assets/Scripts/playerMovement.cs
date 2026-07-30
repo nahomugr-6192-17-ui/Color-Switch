@@ -8,7 +8,6 @@ public class playerMovement : MonoBehaviour
     public SpriteRenderer sr;
     public string colorNames;
     public ColorSwitchManager color;
-    public logicScript logic;
 
     // Update is called once per frame
     void Update()
@@ -25,15 +24,9 @@ public class playerMovement : MonoBehaviour
         {
             return;
         }
-        else if (collision.gameObject.name != colorNames)
+        else if (collision.gameObject.name != colorNames && collision.gameObject.name != "Star")
         {
             Debug.Log("Game Over");
-        }
-
-        if (collision.gameObject.name == "Star")
-        {
-            logic.addScore();
-            Destroy(collision.gameObject);
         }
     }
 }
