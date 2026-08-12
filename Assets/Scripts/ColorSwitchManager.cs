@@ -6,6 +6,8 @@ public class ColorSwitchManager : MonoBehaviour
     public playerMovement player;
     public SpriteRenderer sr;
     public string[] colorNames;
+    public AudioSource audioSource;
+    public AudioClip colorSwitchSound;
 
     public Color HexToColor(string hex)
     {
@@ -30,6 +32,7 @@ public class ColorSwitchManager : MonoBehaviour
             int randomIndex = Random.Range(0, colors.Length);
             player.sr.color = colors[randomIndex];
             player.colorNames = colorNames[randomIndex];
+            audioSource.PlayOneShot(colorSwitchSound);
             Destroy(gameObject);
         }
     }
